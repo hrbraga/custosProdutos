@@ -7,19 +7,6 @@ body {
     background: burlywood;
 }
 
-header {
-    padding: 15px;
-    font-size: 5rem;
-}
-
-header,
-footer {
-    background-image: url(../src/img/bg__header--desk.png);
-    background-color: rgb(100, 18, 18);
-    color: #ffffff;
-    text-align: center;
-}
-
 main {
     flex: 1;
     margin: 0 auto;

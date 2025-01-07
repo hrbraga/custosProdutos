@@ -7,3 +7,16 @@
     font-family: 'Poppins', sans-serif;
     font-size: 62.5%;
 }
+
+header h1{
+    padding: 15px;
+    font-size: 2.5rem;
+}
+
+header,
+footer {
+    background-image: url(../src/img/bg__header--desk.png);
+    background-color: rgb(100, 18, 18);
+    color: #ffffff;
+    text-align: center;
+}
