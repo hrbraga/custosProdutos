@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pr-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/planilhas.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <title>Custos Natal</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Custo Produtos de Natal</h1>
+    <div class="botoes">
+      <p>EXPORTAR</p>
+      <button onclick="exportToPDF()">PDF</button>
+      <button onclick="exportToXLS()">XLS</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="transferencia">
+      <div class="lojas">
+        <label class="remetente" for="remetente">Loja remetente:<input type="text" name="remetente" id="remetente"></label>
+        <label class="destino" for="destino">Loja destino:<input type="text" name="destino" id="destino"></label>
+        <label class="data" for="data">Data da Transferencia:<input type="date" name="date" id="date"></label>
+      </div>
+      <div class="valores-transferencia">
+        <p class="total-transferencia">Total Transferência</p>
+        <span class="vlr-transferencia" id="vlr-transferencia">0,00</span>
+      </div>
+    </div>
+
+    <table class="tableizer-table">
+      <thead>
+        <tr class="tableizer-firstrow">
+          <th>Código</th>
+          <th>Descrição do Material </th>
+          <th>QT caixa</th>
+          <th>caixas</th>
+          <th>unidades</th>
+          <th>Valor Un </th>
+          <th>Royalties</th>
+          <th>ST</th>
+          <th>IPI</th>
+          <th>Txs Adicionais</th>
+          <th>Tx Mídia</th>
+          <th>Custo Caixa</th>
+          <th>Custo UN </th>
+          <th> Total </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1002209</td>
+          <td>ARVORE DE NATAL 70GX24UN</td>
+          <td>24</td>
+          <td><input type="number" class="caixas" min="0"></td>
+          <td><input type="number" class="unidades" min="0"></td>
+          <td>158,41</td>
+          <td>79,21</td>
+          <td>15,20</td>
+          <td>5,15</td>
+          <td>2,16</td>
+          <td>12,00</td>
+          <td>272,13</td>
+          <td>11,34</td>
+          <td><span class="total-item" id="total-valor">0.00</span></td>
+        </tr>
+        <tr>
+          <td>1003449</td>
+          <td>BB DEGUSTACAO MF LIMAO 1,5KGX1UN</td>
+          <td>1</td>
+          <td><input type="number" class="caixas" min="0"></td>
+          <td><input type="number" class="unidades" min="0"></td>
+          <td>36,60</td>
+          <td>18,30</td>
+          <td>0,00</td>
+          <td>1,19</td>
+          <td>0,00</td>
+          <td>0,00</td>
+          <td>56,09</td>
+          <td>56,09</td>
+          <td><span class="total-item" id="total-valor">0.00</span></td>
+        </tr>
+        <tr>
+          <td>1002837</td>
+          <td>BB FLOWPACK ARVORE MIL FOLHAS 78GX12UN</td>
+          <td>12</td>
+          <td><input type="number" class="caixas" min="0"></td>
+          <td><input type="number" class="unidades" min="0"></td>
+          <td>69,89</td>
+          <td>34,95</td>
+          <td>6,71</td>
+          <td>2,27</td>
+          <td>1,08</td>
+          <td>6,00</td>
+          <td>120,90</td>
+          <td>10,07</td>
+          <td><span class="total-item" id="total-valor">0.00</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <script src="../js/planilha.js"></script>
+  <script src="../js/btn-export.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/shim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+
+</html>

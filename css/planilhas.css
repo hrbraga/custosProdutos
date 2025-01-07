@@ -1,0 +1,68 @@
+body{
+    margin: 5px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+header h1 {
+    font-size: 1.6rem;
+    align-items: center;
+    text-align: center;
+}
+
+header .botoes{
+    font-size: 2rem;
+}
+
+main input {
+    width: 50px;
+}
+
+main .transferencia{
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+}
+
+main .transferencia .lojas {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+main .transferencia .lojas input{
+    font-size: 1.2rem;
+    margin-left: 20px;
+    width: 300px;
+}
+
+main .transferencia .remetente, .destino{
+    font-size: 1.2rem;
+}
+
+main .valores-transferencia{
+    display: flex;
+    align-items: center;
+}
+
+main .total-transferencia, .vlr-transferencia{
+    font-size: 1.4rem;
+}
+
+main .vlr-transferencia{
+    margin-left: 15px;
+}
+
+main .tableizer-table{
+    width: 100%;
+    font-size: 4.5rem;
+}
+
+.caixas, .unidades, .total-item {
+    font-size: 1.2rem;
+    text-align: center;
+}
