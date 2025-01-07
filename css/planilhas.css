@@ -1,11 +1,16 @@
-body{
-    margin: 5px;
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;   
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px;   
 }
 
 header h1 {
@@ -14,8 +19,30 @@ header h1 {
     text-align: center;
 }
 
-header .botoes{
-    font-size: 2rem;
+header p{
+    font-size: 1.4rem;
+}
+
+header .btn-exportar button{
+    font-size: 1.6rem;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+header .btn-exportar button:hover{
+    background-color: rgb(97, 30, 30);
+    color: #ffffff;
+    border: 1px solid #ccc;
+}
+
+body{
+    background-color: rgb(207, 207, 204);
+}
+
+main {
+    flex: 1;
+    margin: 15px;
 }
 
 main input {
@@ -26,12 +53,14 @@ main .transferencia{
     display: flex;
     flex-direction: column;
     font-size: 3rem;
+    margin-bottom: 15px;
 }
 
 main .transferencia .lojas {
     display: flex;
     flex-direction: column;
     align-items: start;
+    gap: 10px;
 }
 
 main .transferencia .lojas input{
@@ -47,6 +76,7 @@ main .transferencia .remetente, .destino{
 main .valores-transferencia{
     display: flex;
     align-items: center;
+    margin-top: 15px;
 }
 
 main .total-transferencia, .vlr-transferencia{
@@ -60,9 +90,25 @@ main .vlr-transferencia{
 main .tableizer-table{
     width: 100%;
     font-size: 4.5rem;
+    text-align: center;
+}
+
+.nome-produto{
+    text-align: justify;
 }
 
 .caixas, .unidades, .total-item {
     font-size: 1.2rem;
     text-align: center;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+footer a{
+    font-size: 2rem;
 }

@@ -12,23 +12,26 @@
 <body>
 
   <header>
-    <h1>Custo Produtos de Natal</h1>
+    <h1>Produtos de Natal</h1>
     <div class="botoes">
       <p>EXPORTAR</p>
-      <button onclick="exportToPDF()">PDF</button>
-      <button onclick="exportToXLS()">XLS</button>
+      <div class="btn-exportar">
+        <button onclick="exportToPDF()">PDF</button>
+        <button onclick="exportToXLS()">XLS</button>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="transferencia">
       <div class="lojas">
-        <label class="remetente" for="remetente">Loja remetente:<input type="text" name="remetente" id="remetente"></label>
+        <label class="remetente" for="remetente">Loja remetente:<input type="text" name="remetente"
+            id="remetente"></label>
         <label class="destino" for="destino">Loja destino:<input type="text" name="destino" id="destino"></label>
-        <label class="data" for="data">Data da Transferencia:<input type="date" name="date" id="date"></label>
+        <label class="data" for="data">Data da Transferência:<input type="date" name="date" id="date"></label>
       </div>
       <div class="valores-transferencia">
-        <p class="total-transferencia">Total Transferência</p>
+        <p class="total-transferencia">Total Transferência:</p>
         <span class="vlr-transferencia" id="vlr-transferencia">0,00</span>
       </div>
     </div>
@@ -55,7 +58,7 @@
       <tbody>
         <tr>
           <td>1002209</td>
-          <td>ARVORE DE NATAL 70GX24UN</td>
+          <td class="nome-produto">ARVORE DE NATAL 70GX24UN</td>
           <td>24</td>
           <td><input type="number" class="caixas" min="0"></td>
           <td><input type="number" class="unidades" min="0"></td>
@@ -71,7 +74,7 @@
         </tr>
         <tr>
           <td>1003449</td>
-          <td>BB DEGUSTACAO MF LIMAO 1,5KGX1UN</td>
+          <td class="nome-produto">BB DEGUSTACAO MF LIMAO 1,5KGX1UN</td>
           <td>1</td>
           <td><input type="number" class="caixas" min="0"></td>
           <td><input type="number" class="unidades" min="0"></td>
@@ -87,7 +90,7 @@
         </tr>
         <tr>
           <td>1002837</td>
-          <td>BB FLOWPACK ARVORE MIL FOLHAS 78GX12UN</td>
+          <td class="nome-produto">BB FLOWPACK ARVORE MIL FOLHAS 78GX12UN</td>
           <td>12</td>
           <td><input type="number" class="caixas" min="0"></td>
           <td><input type="number" class="unidades" min="0"></td>
@@ -104,12 +107,19 @@
       </tbody>
     </table>
   </main>
+
+  <footer>
+    <a href="..\html\selecao.html">
+    <p>Voltar ao Início</p>
+  </a>
+  </footer>
+
   <script src="../js/planilha.js"></script>
   <script src="../js/btn-export.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/shim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-</body>
 
+</body>
 </html>
