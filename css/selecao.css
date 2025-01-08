@@ -5,56 +5,29 @@ body {
     background: burlywood;
 }
 
-.campanha-1 {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-.campanha-1 img {
-    width: 100%; 
-    height: auto; 
-    border-radius: 15px;
-}
-
-.campanha-1 p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    color: white; /* Cor do texto para contraste */
-    font-size: 3rem; /* Ajuste o tamanho da fonte conforme necessário */
-    padding: 5px 10px; /* Espaçamento interno opcional */
-    border-radius: 5px; /* Bordas arredondadas opcionais */
-}
-
-/* Centraliza o container de campanhas na página */
 .campanhas {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px; /* Espaçamento entre as divs */
     flex-wrap: wrap; /* Permite quebra de linha caso necessário */
-    margin: 50px auto;
-    padding: 10px;
+    margin: 30px auto;
 }
 
 
-.campanha-1, .campanha-2 {
+.campanha {
     position: relative;
     text-align: center;
     width: 400px; 
 }
 
-
-.campanha-1 a, .campanha-2 a {
+.campanha a {
     text-decoration: none; 
     display: block;
     position: relative;
 }
 
-.campanha-1 img, .campanha-2 img {
+.campanha img {
     width: 400px;
     height: 250px;
     object-fit: cover; 
@@ -65,7 +38,7 @@ body {
 }
 
 
-.campanha-1 p, .campanha-2 p {
+.campanha p {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -78,11 +51,11 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-.campanha-1 a:hover img, .campanha-2 a:hover img {
+.campanha a:hover img {
     transform: scale(1.05);
     filter: brightness(1);
 }
 
-.campanha-1 a:hover p, .campanha-2 a:hover p {
+.campanha a:hover p {
    color: #c4c4c4; 
 }

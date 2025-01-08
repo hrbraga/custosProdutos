@@ -2,12 +2,11 @@ function exportToPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  // Captura as informações das lojas
   const lojaRemetente = document.querySelector("#remetente").value || "";
   const lojaDestino = document.querySelector("#destino").value || "";
   const dataTransferenciaInput = document.querySelector("#date").value || "";
+  const totalTransferencia = document.querySelector("#vlr-transferencia").textContent.trim();
 
-  // Formata a data para dd-mm-aaaa
   const dataTransferencia = dataTransferenciaInput
     ? new Date(dataTransferenciaInput).toLocaleDateString("pt-BR", {
         day: "2-digit",
@@ -16,13 +15,12 @@ function exportToPDF() {
       }).replace(/\//g, "-")
     : "";
 
-  // Adiciona os dados das lojas no PDF
   doc.text("Informações da Transferência", 10, 10);
   doc.text(`Loja Remetente: ${lojaRemetente}`, 10, 20);
   doc.text(`Loja Destino: ${lojaDestino}`, 10, 30);
   doc.text(`Data da Transferência: ${dataTransferencia}`, 10, 40);
+  doc.text(`Valor Total da Transferência: ${totalTransferencia}`, 10, 50);
 
-  // Captura as linhas da tabela
   const tableRows = [];
   const table = document.querySelector(".tableizer-table tbody");
 
@@ -45,7 +43,7 @@ function exportToPDF() {
   doc.autoTable({
     head: [headers],
     body: tableRows,
-    startY: 50,
+    startY: 60,
     theme: 'striped',
     styles: { fontSize: 10 },
     headStyles: { fillColor: [0, 102, 204] },
