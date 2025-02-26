@@ -14,7 +14,7 @@ function acessar() {
         return;
     }
 
-    const codigosValidos = ["1871, 5901"];
+    const codigosValidos = ["1871", "5901"];
 
     if (codigosValidos.includes(codigoDigitado)) {
         alert("Acesso Autorizado!");
