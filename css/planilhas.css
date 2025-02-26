@@ -102,6 +102,11 @@ main .tableizer-table{
     text-align: center;
 }
 
+.naoCalculado{
+    background-color: red;
+    opacity: 0.5;
+}
+
 footer {
     color: white;
     text-align: center;

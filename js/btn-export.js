@@ -37,7 +37,6 @@ function exportToPDF() {
     tableRows.push([codigo, descricao, caixas, unidades, total]);
   });
 
-  // Adiciona a tabela ao PDF
   const headers = ["Código", "Descrição do Material", "Caixas", "Unidades", "Total"];
 
   doc.autoTable({
@@ -49,19 +48,19 @@ function exportToPDF() {
     headStyles: { fillColor: [0, 102, 204] },
   });
 
-  // Salva o PDF
-  doc.save("Custos_Natal.pdf");
+  // Solicita o nome do arquivo ao usuário
+  const fileName = prompt("Digite o nome do arquivo para exportação:", "Transferencia") || "Transferencia";
+  
+  doc.save(`${fileName}.pdf`);
 }
 
 function exportToXLS() {
   const wb = XLSX.utils.book_new();
 
-  // Captura as informações das lojas
   const lojaRemetente = document.querySelector("#remetente").value || "";
   const lojaDestino = document.querySelector("#destino").value || "";
   const dataTransferenciaInput = document.querySelector("#date").value || "";
 
-  // Formata a data para dd-mm-aaaa
   const dataTransferencia = dataTransferenciaInput
     ? new Date(dataTransferenciaInput).toLocaleDateString("pt-BR", {
         day: "2-digit",
@@ -70,7 +69,6 @@ function exportToXLS() {
       }).replace(/\//g, "-")
     : "";
 
-  // Prepara os dados das lojas para inclusão no Excel
   const lojaInfo = [
     ["Informações da Transferência"],
     ["Loja Remetente", lojaRemetente],
@@ -96,12 +94,13 @@ function exportToXLS() {
 
   const headers = ["Código", "Descrição do Material", "Caixas", "Unidades", "Total"];
 
-  // Combina as informações das lojas e a tabela em uma única aba
   const combinedData = [...lojaInfo, [], headers, ...tableRows];
 
   const sheet = XLSX.utils.aoa_to_sheet(combinedData);
-  XLSX.utils.book_append_sheet(wb, sheet, "Custos_Natal");
+  XLSX.utils.book_append_sheet(wb, sheet, "Transferencia");
 
-  // Salva o arquivo Excel
-  XLSX.writeFile(wb, "Custos_Natal.xlsx");
+  // Solicita o nome do arquivo ao usuário
+  const fileName = prompt("Digite o nome do arquivo para exportação:", "Transferencia") || "Transferencia";
+
+  XLSX.writeFile(wb, `${fileName}.xlsx`);
 }

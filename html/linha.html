@@ -1,15 +1,3346 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pr-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em Construção</title>
-    <link rel="stylesheet" href="..\css\construcao.css">
+    <link rel="shortcut icon" href="../src/img/chocolate.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/planilhas.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <title>Produtos de Linha</title>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Página em Construção</h1>
-        <a href=".\selecao.html"><button>Voltar</button></a>
-    </div>
+    <header>
+        <h1>Produtos de Linha</h1>
+        <div class="botoes">
+            <p>EXPORTAR</p>
+            <div class="btn-exportar">
+                <button onclick="exportToPDF()">PDF</button>
+                <button onclick="exportToXLS()">XLS</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="transferencia">
+            <div class="lojas">
+                <label class="remetente" for="remetente">Loja remetente:<input type="text" name="remetente"
+                        id="remetente"></label>
+                <label class="destino" for="destino">Loja destino:<input type="text" name="destino"
+                        id="destino"></label>
+                <label class="data" for="data">Data da Transferência:<input type="date" name="date" id="date"></label>
+            </div>
+            <div class="valores-transferencia">
+                <p class="total-transferencia">Total Transferência:</p>
+                <span class="vlr-transferencia" id="vlr-transferencia">0,00</span>
+            </div>
+        </div>
+
+        <table class="tableizer-table">
+            <thead>
+                <tr class="tableizer-firstrow">
+                    <th>Código</th>
+                    <th>Descrição do Material </th>
+                    <th>QT caixa</th>
+                    <th>caixas</th>
+                    <th>unidades</th>
+                    <th>Valor Un </th>
+                    <th>Royalties</th>
+                    <th>ST</th>
+                    <th>IPI</th>
+                    <th>Txs Adicionais</th>
+                    <th>Tx Mídia</th>
+                    <th>Custo Caixa</th>
+                    <th>Custo UN </th>
+                    <th> Total </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1000003</td>
+                    <td>DRAG LANUT 150 AVELA</td>
+                    <td>9</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>103,14</td>
+                    <td>51,57</td>
+                    <td>12,94</td>
+                    <td>3,35</td>
+                    <td>0,81</td>
+                    <td>5,40</td>
+                    <td>177,21</td>
+                    <td>19,69</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000024</td>
+                    <td>CRESPUS BYTES 100 AO LEITE</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>79,32</td>
+                    <td>39,66</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>120,06</td>
+                    <td>10,01</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003124</td>
+                    <td>CX TAB INTENSIDADE 350 SORTIDO</td>
+                    <td>6</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>236,14</td>
+                    <td>118,07</td>
+                    <td>24,00</td>
+                    <td>7,68</td>
+                    <td>0,54</td>
+                    <td>0,00</td>
+                    <td>386,43</td>
+                    <td>64,41</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000135</td>
+                    <td>CX MONTEBELLO 90 COCO</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>74,88</td>
+                    <td>37,44</td>
+                    <td>10,02</td>
+                    <td>2,43</td>
+                    <td>1,08</td>
+                    <td>3,60</td>
+                    <td>129,45</td>
+                    <td>10,79</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000137</td>
+                    <td>CX MONTEBELLO 90 TRADICIONAL</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>74,88</td>
+                    <td>37,44</td>
+                    <td>10,02</td>
+                    <td>2,43</td>
+                    <td>1,08</td>
+                    <td>3,60</td>
+                    <td>129,45</td>
+                    <td>10,79</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000191</td>
+                    <td>BB CEREJAO </td>
+                    <td>40</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>118,90</td>
+                    <td>59,45</td>
+                    <td>14,92</td>
+                    <td>3,86</td>
+                    <td>3,60</td>
+                    <td>12,00</td>
+                    <td>212,73</td>
+                    <td>5,32</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000291</td>
+                    <td>BB 13 AMENDOA ZERO ACUCAR</td>
+                    <td>74</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>140,42</td>
+                    <td>70,21</td>
+                    <td>17,62</td>
+                    <td>4,56</td>
+                    <td>6,66</td>
+                    <td>0,00</td>
+                    <td>239,47</td>
+                    <td>3,24</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000292</td>
+                    <td>BB 13 AVELA ZERO ACUCAR</td>
+                    <td>74</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>140,42</td>
+                    <td>70,21</td>
+                    <td>17,62</td>
+                    <td>4,56</td>
+                    <td>6,66</td>
+                    <td>0,00</td>
+                    <td>239,47</td>
+                    <td>3,24</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000421</td>
+                    <td>CHOCOARTE 40 PARABENS</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>126,63</td>
+                    <td>63,32</td>
+                    <td>14,74</td>
+                    <td>4,12</td>
+                    <td>2,16</td>
+                    <td>7,20</td>
+                    <td>218,17</td>
+                    <td>9,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000507</td>
+                    <td>CHOCOARTE TE AMO 40G</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>126,63</td>
+                    <td>63,32</td>
+                    <td>14,74</td>
+                    <td>4,12</td>
+                    <td>2,16</td>
+                    <td>7,20</td>
+                    <td>218,17</td>
+                    <td>9,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000624</td>
+                    <td>CX TRU LACREME 160 SORTIDO</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>168,70</td>
+                    <td>84,35</td>
+                    <td>17,15</td>
+                    <td>5,48</td>
+                    <td>1,08</td>
+                    <td>12,00</td>
+                    <td>288,76</td>
+                    <td>24,06</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1000690</td>
+                    <td>CX TRU LACREME 225</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>342,17</td>
+                    <td>171,09</td>
+                    <td>34,78</td>
+                    <td>11,12</td>
+                    <td>1,08</td>
+                    <td>12,00</td>
+                    <td>572,24</td>
+                    <td>47,69</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001054</td>
+                    <td>CHOCOARTE TE AMO 40G</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>126,63</td>
+                    <td>63,32</td>
+                    <td>14,74</td>
+                    <td>4,12</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>210,97</td>
+                    <td>8,79</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001113</td>
+                    <td>CX MONTEBELLO 90 MOUSSE CHOCOLAT</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>74,88</td>
+                    <td>37,44</td>
+                    <td>10,02</td>
+                    <td>2,43</td>
+                    <td>1,08</td>
+                    <td>3,60</td>
+                    <td>129,45</td>
+                    <td>10,79</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001201</td>
+                    <td>WAFFLE 70 BAUNILHA</td>
+                    <td>8</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>37,24</td>
+                    <td>18,62</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,72</td>
+                    <td>0,00</td>
+                    <td>56,58</td>
+                    <td>7,07</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001335</td>
+                    <td>CX MONTEBELLO 90 MOUSSE MARACUJA</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>74,88</td>
+                    <td>37,44</td>
+                    <td>10,02</td>
+                    <td>2,43</td>
+                    <td>1,08</td>
+                    <td>3,60</td>
+                    <td>129,45</td>
+                    <td>10,79</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001350</td>
+                    <td>TORTA CHOCOLATE 1,5KG</td>
+                    <td>1</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>61,33</td>
+                    <td>30,67</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,09</td>
+                    <td>0,00</td>
+                    <td>92,09</td>
+                    <td>92,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001511</td>
+                    <td>GRANEL AO LEITE FONTE COM MANTEIGA 4KG</td>
+                    <td>1</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>183,73</td>
+                    <td>91,87</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>275,60</td>
+                    <td>275,60</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001526</td>
+                    <td>GRANEL BRANCO FONTE COM MANTEIGA 4KG</td>
+                    <td>1</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>183,73</td>
+                    <td>91,87</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>275,60</td>
+                    <td>275,60</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001474</td>
+                    <td>CX CLA PRECIOSIDADES 360 SORTIDO</td>
+                    <td>4</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>101,05</td>
+                    <td>50,53</td>
+                    <td>10,27</td>
+                    <td>3,28</td>
+                    <td>0,36</td>
+                    <td>0,00</td>
+                    <td>165,49</td>
+                    <td>41,37</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001487</td>
+                    <td>BB 13 AVELA ZERO LACTOSE</td>
+                    <td>74</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>140,42</td>
+                    <td>70,21</td>
+                    <td>17,62</td>
+                    <td>4,56</td>
+                    <td>6,67</td>
+                    <td>0,00</td>
+                    <td>239,48</td>
+                    <td>3,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001610</td>
+                    <td>MOUSSE LACREME 110G</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,92</td>
+                    <td>42,96</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>129,96</td>
+                    <td>10,83</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001680</td>
+                    <td>CX BBS CS 300 SORTIDO</td>
+                    <td>6</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>216,62</td>
+                    <td>108,31</td>
+                    <td>22,02</td>
+                    <td>7,04</td>
+                    <td>0,54</td>
+                    <td>0,00</td>
+                    <td>354,53</td>
+                    <td>59,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001688</td>
+                    <td>CX BBS CS 95 SORTIDO</td>
+                    <td>6</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+
+                    <td>97,36</td>
+                    <td>48,68</td>
+                    <td>9,90</td>
+                    <td>3,16</td>
+                    <td>0,54</td>
+                    <td>0,00</td>
+                    <td>159,64</td>
+                    <td>26,61</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001697</td>
+                    <td>DRAG BC 150 AMENDOA 70%</td>
+                    <td>9</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>103,14</td>
+                    <td>51,57</td>
+                    <td>12,94</td>
+                    <td>3,35</td>
+                    <td>0,81</td>
+                    <td>5,40</td>
+                    <td>177,21</td>
+                    <td>19,69</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001698</td>
+                    <td>COFRE LACREME KIDS 150</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>225,58</td>
+                    <td>112,79</td>
+                    <td>116,46</td>
+                    <td>7,34</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>463,25</td>
+                    <td>38,60</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001706</td>
+                    <td>BB PETIT DELI PISTACHE</td>
+                    <td>20</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>89,21</td>
+                    <td>44,61</td>
+                    <td>9,55</td>
+                    <td>0,00</td>
+                    <td>1,80</td>
+                    <td>0,00</td>
+                    <td>145,17</td>
+                    <td>7,26</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001867</td>
+                    <td>SLACK LACREME 315 AO LEITE</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>163,81</td>
+                    <td>81,91</td>
+                    <td>21,92</td>
+                    <td>5,32</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>274,04</td>
+                    <td>22,84</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001907</td>
+                    <td>SORVETE 70 AVELA LANUT</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1001980</td>
+                    <td>CHOCOWAFER MIL FOLHAS 80G</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,30</td>
+                    <td>42,65</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>129,21</td>
+                    <td>9,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002047</td>
+                    <td>SORVETE 70 AO LEITE LACREME</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002049</td>
+                    <td>SORVETE 70 INTENSIDADE</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002188</td>
+                    <td>TRU 12,5 70% BENDIDO CACAO</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002189</td>
+                    <td>TRU 12,5 85% BENDITO CACAO</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002190</td>
+                    <td>TRU 12,5 AMENDOIM LANUT</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002192</td>
+                    <td>TRU 13,5 PISTACHE LANUT</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002193</td>
+                    <td>TRU 12,5 AO LEITE LACREME</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002194</td>
+                    <td>TRU 12,5 BRANCO LACREME</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002195</td>
+                    <td>TRU 12,5 GIANDUIA LACREME</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002196</td>
+                    <td>TRU 12,5 AO LEITE KIDS LACREME</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>201,48</td>
+                    <td>100,74</td>
+                    <td>26,96</td>
+                    <td>6,55</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>349,23</td>
+                    <td>2,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002198</td>
+                    <td>SORVETE 40 LACREME KIDS</td>
+                    <td>16</td>
+
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>56,79</td>
+                    <td>28,40</td>
+                    <td>13,89</td>
+                    <td>1,85</td>
+                    <td>1,44</td>
+                    <td>0,00</td>
+                    <td>102,37</td>
+                    <td>6,40</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002201</td>
+                    <td>SLACK LANUT 315</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>163,81</td>
+                    <td>81,91</td>
+                    <td>21,92</td>
+                    <td>5,32</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>274,04</td>
+                    <td>22,84</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002203</td>
+                    <td>CHOCOARTE 40 GRATIDAO</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>126,63</td>
+                    <td>63,32</td>
+                    <td>14,74</td>
+                    <td>4,12</td>
+                    <td>2,16</td>
+                    <td>7,20</td>
+                    <td>218,17</td>
+                    <td>9,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002240</td>
+                    <td>BB 12,5 COOKIES CREAM PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>6,89</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>98,61</td>
+                    <td>1,17</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002241</td>
+                    <td>BB 11,5 MIL FOLHAS PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,30</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002246</td>
+                    <td>BB 11,5 3 CHOCOLATES PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,30</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002247</td>
+                    <td>BB 11,5 CAPPUCCINO PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,30</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002248</td>
+                    <td>BB 12,5 BEIJINHO PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,30</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002249</td>
+                    <td>BB 12,5 HOLANDESA PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,78</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,29</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002250</td>
+                    <td>BB 12,5 MARACUJA PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,78</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,29</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002251</td>
+                    <td>BB 12,5 BEM CASADO PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,30</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002252</td>
+                    <td>BB 11,5 INTENSO NIBS PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,79</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,30</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002253</td>
+                    <td>BB 12,5 PACOCA PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>6,89</td>
+                    <td>1,78</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>98,60</td>
+                    <td>1,17</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002254</td>
+                    <td>BB 11,5 BRIGADEIRO PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,78</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,29</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002255</td>
+                    <td>BB 12,5 PETIT GATEAU PETIT DELI</td>
+                    <td>84</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>54,91</td>
+                    <td>27,46</td>
+                    <td>5,58</td>
+                    <td>1,78</td>
+                    <td>7,56</td>
+                    <td>0,00</td>
+                    <td>97,29</td>
+                    <td>1,16</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002333</td>
+                    <td>BOTAO DE ROSA ANGEL 13,3 CEREJA</td>
+                    <td>72</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>504,80</td>
+                    <td>252,40</td>
+                    <td>63,35</td>
+                    <td>16,41</td>
+                    <td>6,48</td>
+                    <td>36,00</td>
+                    <td>879,44</td>
+                    <td>12,21</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002441</td>
+                    <td>DRAG CLASSICOS DRINK 150 LICOR</td>
+                    <td>9</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>96,10</td>
+                    <td>48,05</td>
+                    <td>12,06</td>
+                    <td>3,12</td>
+                    <td>0,81</td>
+                    <td>5,40</td>
+                    <td>165,54</td>
+                    <td>18,39</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002457</td>
+                    <td>SORVETE 70 LACREME ZERO ACUCAR</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002460</td>
+                    <td>SORVETE 70 MEZZO LACREME</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002484</td>
+                    <td>CX BBS GOURMET 485 SORTIDO</td>
+                    <td>10</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>465,84</td>
+                    <td>232,92</td>
+                    <td>47,35</td>
+                    <td>15,14</td>
+                    <td>0,90</td>
+                    <td>10,00</td>
+                    <td>772,15</td>
+                    <td>77,22</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1002485</td>
+                    <td>CX BBS BENDITO CACAO 170 SORTIDO</td>
+                    <td>10</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,90</td>
+                    <td>0,00</td>
+                    <td>0,90</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002495</td>
+                    <td>CX TABS INTENSIDADE 150 SORTIDO</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>151,35</td>
+                    <td>75,68</td>
+                    <td>17,62</td>
+                    <td>4,92</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>250,65</td>
+                    <td>20,89</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002515</td>
+                    <td>CX CLASSICOS DRINKS 88 GARRAFAS</td>
+                    <td>18</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>161,98</td>
+                    <td>80,99</td>
+                    <td>21,67</td>
+                    <td>5,28</td>
+                    <td>1,62</td>
+                    <td>0,00</td>
+                    <td>271,54</td>
+                    <td>15,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002538</td>
+                    <td>SORVETE 70 COOKIES AND CREAM</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002598</td>
+                    <td>TAB 20 AO LEITE LANUT</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>244,40</td>
+                    <td>122,20</td>
+                    <td>28,45</td>
+                    <td>7,94</td>
+                    <td>11,70</td>
+                    <td>26,00</td>
+                    <td>440,69</td>
+                    <td>3,39</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002599</td>
+                    <td>TAB 20 LARANJA CS</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>254,80</td>
+                    <td>127,40</td>
+                    <td>29,66</td>
+                    <td>8,28</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>431,84</td>
+                    <td>3,32</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002600</td>
+                    <td>TAB 20 AO LEITE LACREME</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>218,40</td>
+                    <td>109,20</td>
+                    <td>25,42</td>
+                    <td>7,10</td>
+                    <td>11,70</td>
+                    <td>26,00</td>
+                    <td>397,82</td>
+                    <td>3,06</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002601</td>
+                    <td>TAB 20 CASTANHA CAJU CS</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>228,80</td>
+                    <td>114,40</td>
+                    <td>26,63</td>
+                    <td>7,44</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>388,97</td>
+                    <td>2,99</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002602</td>
+                    <td>TAB 18 CROCANTE CS</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>254,80</td>
+                    <td>127,40</td>
+                    <td>29,66</td>
+                    <td>8,28</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>431,84</td>
+                    <td>3,32</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002603</td>
+                    <td>TAB 20 AO LEITE CS</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>228,80</td>
+                    <td>114,40</td>
+                    <td>26,63</td>
+                    <td>7,44</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>388,97</td>
+                    <td>2,99</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002604</td>
+                    <td>TRU 30 MORANGO</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002609</td>
+                    <td>TAB 20 PIMENTA CS</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>228,80</td>
+                    <td>114,40</td>
+                    <td>26,63</td>
+                    <td>7,44</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>388,97</td>
+                    <td>2,99</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002616</td>
+                    <td>TRU 30 MEZZO</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002620</td>
+                    <td>TAB 20 55% BENDITO CACAO</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>218,40</td>
+                    <td>109,20</td>
+                    <td>25,42</td>
+                    <td>7,10</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>371,82</td>
+                    <td>2,86</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002622</td>
+                    <td>TRU 30 COCO</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002623</td>
+                    <td>CUBO MONSTROS 145 BRIGADEIRO</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>270,34</td>
+                    <td>135,17</td>
+                    <td>27,48</td>
+                    <td>8,79</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>443,94</td>
+                    <td>18,50</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002627</td>
+                    <td>CX BC MINISHOW 108 55%</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>219,73</td>
+                    <td>109,87</td>
+                    <td>22,34</td>
+                    <td>7,14</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>374,92</td>
+                    <td>23,43</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002628</td>
+                    <td>CX LC MINISHOW 108 AO LEITE</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>219,73</td>
+                    <td>109,87</td>
+                    <td>22,34</td>
+                    <td>7,14</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>374,92</td>
+                    <td>23,43</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002631</td>
+                    <td>CX LN MINISHOW 108 AO LEITE</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>219,73</td>
+                    <td>109,87</td>
+                    <td>22,34</td>
+                    <td>7,14</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>374,92</td>
+                    <td>23,43</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002633</td>
+                    <td>TRU 30 TRADICIONAL</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002634</td>
+                    <td>TRU 30 BRANCO</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002635</td>
+                    <td>TAB 18 AO LEITE LACREME KIDS</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>244,40</td>
+                    <td>122,20</td>
+                    <td>28,45</td>
+                    <td>7,94</td>
+                    <td>11,70</td>
+                    <td>26,00</td>
+                    <td>440,69</td>
+                    <td>3,39</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002636</td>
+                    <td>TAB 20 BRANCO LACREME</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>218,40</td>
+                    <td>109,20</td>
+                    <td>25,42</td>
+                    <td>7,10</td>
+                    <td>11,70</td>
+                    <td>26,00</td>
+                    <td>397,82</td>
+                    <td>3,06</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002638</td>
+                    <td>TAB 100 LACREME AO LEITE</td>
+                    <td>38</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>281,68</td>
+                    <td>140,84</td>
+                    <td>32,78</td>
+                    <td>9,15</td>
+                    <td>3,42</td>
+                    <td>11,40</td>
+                    <td>479,27</td>
+                    <td>12,61</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002639</td>
+                    <td>TRU 30 MARACUJA</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002641</td>
+                    <td>TRU 30 MENTA</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002642</td>
+                    <td>TRU 30 LANUT</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002643</td>
+                    <td>TAB 100 LANUT AVELA BRANCO</td>
+                    <td>38</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>281,68</td>
+                    <td>140,84</td>
+                    <td>32,78</td>
+                    <td>9,15</td>
+                    <td>3,42</td>
+                    <td>11,40</td>
+                    <td>479,27</td>
+                    <td>12,61</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1002646</td>
+                    <td>TAB 115 CHOCOMONSTRO</td>
+                    <td>10</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,90</td>
+                    <td>0,00</td>
+                    <td>0,90</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002648</td>
+                    <td>TRU 30 55% BC</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002724</td>
+                    <td>TRU 30 PACOCA</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,40</td>
+                    <td>88,20</td>
+                    <td>23,60</td>
+                    <td>5,73</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>302,03</td>
+                    <td>3,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002742</td>
+                    <td>TAB 20 MEZZO LACREME</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>228,80</td>
+                    <td>114,40</td>
+                    <td>26,63</td>
+                    <td>7,44</td>
+                    <td>11,70</td>
+                    <td>26,00</td>
+                    <td>414,97</td>
+                    <td>3,19</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002762</td>
+                    <td>BB 78 PETIT DELI MIL FOLHAS</td>
+                    <td>20</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>143,84</td>
+                    <td>71,92</td>
+                    <td>18,05</td>
+                    <td>4,67</td>
+                    <td>1,80</td>
+                    <td>0,00</td>
+                    <td>240,28</td>
+                    <td>12,01</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002765</td>
+                    <td>BB 80 PETIT DELI COOKIES N CREAM</td>
+                    <td>20</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>143,84</td>
+                    <td>71,92</td>
+                    <td>18,05</td>
+                    <td>4,67</td>
+                    <td>1,80</td>
+                    <td>0,00</td>
+                    <td>240,28</td>
+                    <td>12,01</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002768</td>
+                    <td>CX CLASSICOS SORTIDO 120G</td>
+                    <td>9</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,31</td>
+                    <td>54,16</td>
+                    <td>11,01</td>
+                    <td>3,52</td>
+                    <td>0,81</td>
+                    <td>14,40</td>
+                    <td>192,21</td>
+                    <td>21,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002770</td>
+                    <td>CX BBS CLASSICOS 160 SORTIDO</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>283,34</td>
+                    <td>141,67</td>
+                    <td>28,80</td>
+                    <td>9,21</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>478,86</td>
+                    <td>29,93</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002783</td>
+                    <td>CUBO BELLAS 145 BRIGADEIRO</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>270,34</td>
+                    <td>135,17</td>
+                    <td>27,48</td>
+                    <td>8,79</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>443,94</td>
+                    <td>18,50</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002789</td>
+                    <td>TAB 100 LACREME ZA AO LEITE</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>144,64</td>
+                    <td>72,32</td>
+                    <td>16,54</td>
+                    <td>4,70</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>239,55</td>
+                    <td>15,97</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002790</td>
+                    <td>CX CLASICOS ZERO ACUCAR 160</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>364,93</td>
+                    <td>182,47</td>
+                    <td>35,68</td>
+                    <td>11,89</td>
+                    <td>1,44</td>
+                    <td>16,00</td>
+                    <td>612,41</td>
+                    <td>38,28</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002791</td>
+                    <td>CX CLASSICOS ZERO LACTOSE 160</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>364,93</td>
+                    <td>182,47</td>
+                    <td>35,68</td>
+                    <td>11,89</td>
+                    <td>1,44</td>
+                    <td>16,00</td>
+                    <td>612,41</td>
+                    <td>38,28</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002792</td>
+                    <td>BB 79 PETIT DELI BROWNIE</td>
+                    <td>20</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>143,84</td>
+                    <td>71,92</td>
+                    <td>18,05</td>
+                    <td>4,67</td>
+                    <td>1,80</td>
+                    <td>0,00</td>
+                    <td>240,28</td>
+                    <td>12,01</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002794</td>
+                    <td>TAB 100 85% BTB BC</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>124,24</td>
+                    <td>62,12</td>
+                    <td>14,46</td>
+                    <td>4,04</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>206,21</td>
+                    <td>13,75</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002795</td>
+                    <td>TAB 100 70% BENDITO CACAO BTB</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>124,24</td>
+                    <td>62,12</td>
+                    <td>14,46</td>
+                    <td>4,04</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>206,21</td>
+                    <td>13,75</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002796</td>
+                    <td>TAB 100 65% BTB BC</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>112,88</td>
+                    <td>56,44</td>
+                    <td>12,01</td>
+                    <td>3,68</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>186,36</td>
+                    <td>12,42</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002797</td>
+                    <td>CX MIAU 70 AO LEITE</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>177,42</td>
+                    <td>88,71</td>
+                    <td>20,65</td>
+                    <td>5,77</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>294,71</td>
+                    <td>12,28</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002817</td>
+                    <td>TAB 130 BANOFFEE DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1002820</td>
+                    <td>TAB 100 AO LEITE LC ZERO LACTOSE</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>1,35</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002822</td>
+                    <td>CX 70 MIAU ZERO LACTOSE</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>124,24</td>
+                    <td>62,12</td>
+                    <td>14,46</td>
+                    <td>4,04</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>207,02</td>
+                    <td>8,63</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002823</td>
+                    <td>TAB 100 67% BENDITO CACAO D DEUS</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>124,24</td>
+                    <td>62,12</td>
+                    <td>14,46</td>
+                    <td>4,04</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>206,21</td>
+                    <td>13,75</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002836</td>
+                    <td>SORVETE 70 TORTA MORANGO DREAMS</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>64,11</td>
+                    <td>32,06</td>
+                    <td>16,29</td>
+                    <td>2,08</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>115,62</td>
+                    <td>9,63</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002854</td>
+                    <td>TRU 30 MOCHACCINO ART</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002862</td>
+                    <td>TAB 100 LANUT AVELA</td>
+                    <td>38</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>281,68</td>
+                    <td>140,84</td>
+                    <td>32,78</td>
+                    <td>9,15</td>
+                    <td>3,42</td>
+                    <td>11,40</td>
+                    <td>479,27</td>
+                    <td>12,61</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002866</td>
+                    <td>TAB 100 LACREME BRANCO</td>
+                    <td>38</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>281,68</td>
+                    <td>140,84</td>
+                    <td>32,78</td>
+                    <td>9,15</td>
+                    <td>3,42</td>
+                    <td>11,40</td>
+                    <td>479,27</td>
+                    <td>12,61</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1002867</td>
+                    <td>TAB 100 CS COOKIES'N CREAM</td>
+                    <td>44</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002880</td>
+                    <td>TAB 130 MIL FOLHAS DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002881</td>
+                    <td>TAB 130 MIL FOLHAS AVELA DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002882</td>
+                    <td>TAB 130 MARACUJA DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002883</td>
+                    <td>TAB 130 MORANGO DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002896</td>
+                    <td>TRU 30 PETIT GATEAU ART</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002913</td>
+                    <td>DRAG BYTES 100 PASSAS AO LEITE</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002934</td>
+                    <td>MOUSSE BENDITO CACAO 110</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,92</td>
+                    <td>42,96</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>129,96</td>
+                    <td>10,83</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002935</td>
+                    <td>MOUSSE LANUT 110</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,92</td>
+                    <td>42,96</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>129,96</td>
+                    <td>10,83</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002945</td>
+                    <td>TAB 5 85% BENDITO CACAU</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002946</td>
+                    <td>TAB 5 BRANCO LACREME</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002947</td>
+                    <td>TAB 5 28% LACREME</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002948</td>
+                    <td>TAB 5 70% BENDITO CACAU</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1002960</td>
+                    <td>TAB 100 CS BRIGADEIRO</td>
+                    <td>44</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002962</td>
+                    <td>TAB 5 MENTA CS</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002964</td>
+                    <td>TAB 5 CAFE CS</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002968</td>
+                    <td>DRAG BYTES 100 CROC AO LEITE</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002970</td>
+                    <td>DRAG BYTES 100 PACOCA</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1002996</td>
+                    <td>DRAG BYTES 100 CROCANTE BRANCO</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003040</td>
+                    <td>DRAG BYTES 100 AO LEITE BRANCO</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003045</td>
+                    <td>TAB 20 AO LEITE ZERO ACUCAR</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>11,70</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003046</td>
+                    <td>TAB 20 BRANCO ZERO ACUCAR</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>11,70</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003047</td>
+                    <td>TAB 20 70% ZERO ACUCAR</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>11,70</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003049</td>
+                    <td>CX BBS GOURMET HARM VINHO 175</td>
+                    <td>10</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>216,48</td>
+                    <td>108,24</td>
+                    <td>22,01</td>
+                    <td>7,04</td>
+                    <td>0,90</td>
+                    <td>0,00</td>
+                    <td>354,67</td>
+                    <td>35,47</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003050</td>
+                    <td>CX GOURMET DRINKS 185G</td>
+                    <td>10</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>205,64</td>
+                    <td>102,82</td>
+                    <td>25,81</td>
+                    <td>6,68</td>
+                    <td>0,90</td>
+                    <td>0,00</td>
+                    <td>341,85</td>
+                    <td>34,19</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003054</td>
+                    <td>TAB 100 LACREME BRANCO ZA</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>144,64</td>
+                    <td>72,32</td>
+                    <td>16,54</td>
+                    <td>4,70</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>239,55</td>
+                    <td>15,97</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003059</td>
+                    <td>TAB 5 DARK MILK BC</td>
+                    <td>150</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>71,11</td>
+                    <td>35,56</td>
+                    <td>8,28</td>
+                    <td>2,31</td>
+                    <td>13,50</td>
+                    <td>0,00</td>
+                    <td>130,76</td>
+                    <td>0,87</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003060</td>
+                    <td>TAB 100 DARK MILK BC</td>
+                    <td>38</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003072</td>
+                    <td>CX BBS CS 160 SORTIDO</td>
+                    <td>4</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,28</td>
+                    <td>54,14</td>
+                    <td>11,01</td>
+                    <td>3,52</td>
+                    <td>0,36</td>
+                    <td>0,00</td>
+                    <td>177,31</td>
+                    <td>44,33</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003075</td>
+                    <td>TRU 30 GC ART</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003082</td>
+                    <td>CHOCOWAFER 80 LANUT</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,30</td>
+                    <td>42,65</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>129,21</td>
+                    <td>9,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003087</td>
+                    <td>COOKIES 120 GOTAS AO LEITE</td>
+                    <td>8</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>51,81</td>
+                    <td>25,91</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,72</td>
+                    <td>0,00</td>
+                    <td>78,44</td>
+                    <td>9,80</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003090</td>
+                    <td>BISC COBERTO 100 AO LEITE</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>91,31</td>
+                    <td>45,66</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>138,32</td>
+                    <td>9,22</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003094</td>
+                    <td>TAB 100 CS CAST CARAMELIZADA</td>
+                    <td>44</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003095</td>
+                    <td>TAB 100 PACOCA</td>
+                    <td>44</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003096</td>
+                    <td>TAB 100 MORANGO</td>
+                    <td>44</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,00</td>
+                    <td>3,96</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003099</td>
+                    <td>DRAG BYTES 100 3 CHOCOLATES</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003102</td>
+                    <td>CX LC MINISHOW 108 SORTIDO</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>219,73</td>
+                    <td>109,87</td>
+                    <td>22,34</td>
+                    <td>7,14</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>374,92</td>
+                    <td>23,43</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003103</td>
+                    <td>TAB 130 MORANGO DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003107</td>
+                    <td>TAB 100 LC MEZZO</td>
+                    <td>38</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>281,68</td>
+                    <td>140,84</td>
+                    <td>32,78</td>
+                    <td>9,15</td>
+                    <td>3,42</td>
+                    <td>11,40</td>
+                    <td>479,27</td>
+                    <td>12,61</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003109</td>
+                    <td>CX CS 80 SORTIDO</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>110,81</td>
+                    <td>55,41</td>
+                    <td>11,26</td>
+                    <td>3,60</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>182,34</td>
+                    <td>13,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003112</td>
+                    <td>BIS 100 CARAMELIZADO</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>91,39</td>
+                    <td>45,70</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>138,44</td>
+                    <td>9,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003113</td>
+                    <td>CHOCOBISC 100 BISC COB CARAMEL</td>
+                    <td>15</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>91,39</td>
+                    <td>45,70</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,35</td>
+                    <td>0,00</td>
+                    <td>138,44</td>
+                    <td>9,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr class="naoCalculado">
+                    <td>1003120</td>
+                    <td>DRAG BYTES 150 ZA AO LEITE</td>
+                    <td>9</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,81</td>
+                    <td>0,00</td>
+                    <td>0,81</td>
+                    <td>0,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003124</td>
+                    <td>CX 350 7 CHOCOLATES TABLETES</td>
+                    <td>6</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>236,14</td>
+                    <td>118,07</td>
+                    <td>24,00</td>
+                    <td>7,67</td>
+                    <td>0,54</td>
+                    <td>6,00</td>
+                    <td>392,42</td>
+                    <td>65,40</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003138</td>
+                    <td>TRU 30 ART MARULA</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003139</td>
+                    <td>TRU 30 ARTESANAL BANOFFEE</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003140</td>
+                    <td>CX 47 ENIGMA HARRY POTTER</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>175,41</td>
+                    <td>87,71</td>
+                    <td>90,56</td>
+                    <td>5,71</td>
+                    <td>2,16</td>
+                    <td>12,00</td>
+                    <td>373,55</td>
+                    <td>15,56</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003143</td>
+                    <td>DRAG BYTES 100 AO LEITE</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003183</td>
+                    <td>WAFER PISTACHE 80G</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>91,89</td>
+                    <td>45,95</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>139,10</td>
+                    <td>9,94</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003187</td>
+                    <td>BIS COOKIES 120 DUO CHOCOLATE</td>
+                    <td>8</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>51,81</td>
+                    <td>25,91</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,72</td>
+                    <td>0,00</td>
+                    <td>78,44</td>
+                    <td>9,80</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003193</td>
+                    <td>TAB 130 PISTACHE LANUT</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>158,31</td>
+                    <td>79,16</td>
+                    <td>20,97</td>
+                    <td>5,15</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>264,85</td>
+                    <td>18,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003209</td>
+                    <td>CX MIAU 70 AO LEITE</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>177,45</td>
+                    <td>88,73</td>
+                    <td>20,65</td>
+                    <td>5,77</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>294,76</td>
+                    <td>12,28</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003212</td>
+                    <td>SORV 70 COBERTO PISTACHE LN</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,62</td>
+                    <td>42,81</td>
+                    <td>21,76</td>
+                    <td>2,79</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>154,06</td>
+                    <td>12,84</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003229</td>
+                    <td>CX LN 108 MINISHOW PISTACHE</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>172,02</td>
+                    <td>86,01</td>
+                    <td>17,79</td>
+                    <td>5,59</td>
+                    <td>1,44</td>
+                    <td>0,00</td>
+                    <td>282,85</td>
+                    <td>17,68</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003233</td>
+                    <td>CX LN MINISHOW 108 AMENDOIM</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>219,73</td>
+                    <td>109,87</td>
+                    <td>22,34</td>
+                    <td>7,14</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>374,92</td>
+                    <td>23,43</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003279</td>
+                    <td>DRAG BYTES 100 AMENDOIM</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,27</td>
+                    <td>54,14</td>
+                    <td>13,59</td>
+                    <td>3,52</td>
+                    <td>1,44</td>
+                    <td>9,60</td>
+                    <td>190,56</td>
+                    <td>11,91</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003285</td>
+                    <td>CX MIAU 70 MEZZO</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>177,42</td>
+                    <td>88,71</td>
+                    <td>20,65</td>
+                    <td>5,77</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>294,71</td>
+                    <td>12,28</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003325</td>
+                    <td>WAFER 80 BISC CAPPUCCINO</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,30</td>
+                    <td>42,65</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>129,21</td>
+                    <td>9,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003326</td>
+                    <td>WAFER 80 BISC LIMAO</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>85,30</td>
+                    <td>42,65</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>129,21</td>
+                    <td>9,23</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003329</td>
+                    <td>GRANEL BB BRIGADEIRO 1KG</td>
+                    <td>1</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>41,07</td>
+                    <td>20,54</td>
+                    <td>5,15</td>
+                    <td>1,33</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>68,09</td>
+                    <td>68,09</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003333</td>
+                    <td>CX ANGEL GOURMET 200GX14UN</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>273,22</td>
+                    <td>136,61</td>
+                    <td>27,77</td>
+                    <td>8,88</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>447,74</td>
+                    <td>31,98</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003334</td>
+                    <td>CX ANG 75 FRU SILVESTRE</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>100,68</td>
+                    <td>50,34</td>
+                    <td>9,27</td>
+                    <td>3,28</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>164,83</td>
+                    <td>11,77</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003339</td>
+                    <td>TAB 130 CREME BRULEE DREAMS</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,66</td>
+                    <td>59,83</td>
+                    <td>14,61</td>
+                    <td>3,89</td>
+                    <td>1,26</td>
+                    <td>4,20</td>
+                    <td>203,45</td>
+                    <td>14,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003343</td>
+                    <td>COOKIES 140 BISC DEC LIMAO</td>
+                    <td>8</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>61,01</td>
+                    <td>30,51</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,72</td>
+                    <td>0,00</td>
+                    <td>92,24</td>
+                    <td>11,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003344</td>
+                    <td>COOKIES 140 BISC BAN 3 CHOCO</td>
+                    <td>8</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>61,01</td>
+                    <td>30,51</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,72</td>
+                    <td>0,00</td>
+                    <td>92,24</td>
+                    <td>11,53</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003345</td>
+                    <td>COOKIES 40 BISC TRAD AO LEITE</td>
+                    <td>36</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>136,57</td>
+                    <td>68,29</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,24</td>
+                    <td>0,00</td>
+                    <td>208,10</td>
+                    <td>5,78</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003346</td>
+                    <td>CHOCOBISC 50 BISC COB CARAMEL</td>
+                    <td>36</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>136,57</td>
+                    <td>68,29</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>3,24</td>
+                    <td>0,00</td>
+                    <td>208,10</td>
+                    <td>5,78</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003347</td>
+                    <td>WAFER 80 BISC COB AO LEITE</td>
+                    <td>14</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>90,67</td>
+                    <td>45,34</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,26</td>
+                    <td>0,00</td>
+                    <td>137,27</td>
+                    <td>9,80</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003368</td>
+                    <td>CX LC 108 KIDS</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>174,80</td>
+                    <td>87,40</td>
+                    <td>21,94</td>
+                    <td>5,68</td>
+                    <td>1,44</td>
+                    <td>14,40</td>
+                    <td>305,66</td>
+                    <td>19,10</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003369</td>
+                    <td>CX MIAU 70 RECH AO LEITE</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>176,48</td>
+                    <td>88,24</td>
+                    <td>23,38</td>
+                    <td>5,74</td>
+                    <td>2,16</td>
+                    <td>2,40</td>
+                    <td>298,40</td>
+                    <td>12,43</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003389</td>
+                    <td>TAB 20 BLESS ZA 70</td>
+                    <td>130</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>317,17</td>
+                    <td>158,59</td>
+                    <td>36,92</td>
+                    <td>10,31</td>
+                    <td>11,70</td>
+                    <td>0,00</td>
+                    <td>534,69</td>
+                    <td>4,11</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003392</td>
+                    <td>TRU 30 BRANCO BLESS ZA</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>223,07</td>
+                    <td>111,54</td>
+                    <td>29,85</td>
+                    <td>7,25</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>379,81</td>
+                    <td>4,22</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003394</td>
+                    <td>TRU 30 PISTACHE LANUT</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>212,40</td>
+                    <td>106,20</td>
+                    <td>28,42</td>
+                    <td>6,90</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>362,02</td>
+                    <td>4,02</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003395</td>
+                    <td>SORV 70 COB AO LEITE LACREME ZA</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003396</td>
+                    <td>TRU 30 BLESS ZA AO LEITE</td>
+                    <td>90</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>223,07</td>
+                    <td>111,54</td>
+                    <td>29,85</td>
+                    <td>7,25</td>
+                    <td>8,10</td>
+                    <td>0,00</td>
+                    <td>379,81</td>
+                    <td>4,22</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003451</td>
+                    <td>DRAGEADO 100 CHOCOMONSTRO</td>
+                    <td>16</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>117,44</td>
+                    <td>58,72</td>
+                    <td>25,33</td>
+                    <td>3,83</td>
+                    <td>1,44</td>
+                    <td>0,00</td>
+                    <td>206,76</td>
+                    <td>12,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003454</td>
+                    <td>BB 13,5 BLESS ZL AVELA</td>
+                    <td>74</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>140,42</td>
+                    <td>70,21</td>
+                    <td>17,62</td>
+                    <td>4,56</td>
+                    <td>6,66</td>
+                    <td>0,00</td>
+                    <td>239,47</td>
+                    <td>3,24</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003532</td>
+                    <td>SORV 70 COBERTO BISCOITERIA</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003537</td>
+                    <td>SORV 70 LACREME KIDS</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>72,71</td>
+                    <td>36,36</td>
+                    <td>18,48</td>
+                    <td>2,36</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>130,99</td>
+                    <td>10,92</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003524</td>
+                    <td>TAB BC IMUNIDADE 70% 30GX30UN</td>
+                    <td>30</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>146,39</td>
+                    <td>73,20</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>2,70</td>
+                    <td>0,00</td>
+                    <td>222,29</td>
+                    <td>7,41</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003527</td>
+                    <td>TAB BC SAUDE DA PELE 70% 30GX30UN</td>
+                    <td>30</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>146,39</td>
+                    <td>73,20</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>2,70</td>
+                    <td>0,00</td>
+                    <td>222,29</td>
+                    <td>7,41</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003529</td>
+                    <td>TAB BC FOCO 70% 30GX30UN</td>
+                    <td>30</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>146,39</td>
+                    <td>73,20</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>2,70</td>
+                    <td>0,00</td>
+                    <td>222,29</td>
+                    <td>7,41</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2000014</td>
+                    <td>WAFER BYTES 50 AVELA</td>
+                    <td>30</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>116,17</td>
+                    <td>58,09</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>2,70</td>
+                    <td>0,00</td>
+                    <td>176,96</td>
+                    <td>5,90</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2000170</td>
+                    <td>VINHO CS CABERNET SAUVIGNON 375</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>18,63</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>19,71</td>
+                    <td>1,64</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2000171</td>
+                    <td>VINHO ESPUMANTE MOSCATEL 375ML</td>
+                    <td>12</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>18,63</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>1,08</td>
+                    <td>0,00</td>
+                    <td>19,71</td>
+                    <td>1,64</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2000974</td>
+                    <td>WAFER SINTONIA 45 CAJU E CANELA</td>
+                    <td>24</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>92,93</td>
+                    <td>46,47</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>2,16</td>
+                    <td>0,00</td>
+                    <td>141,56</td>
+                    <td>5,90</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2002357</td>
+                    <td>PAO DE MEL DOCE DE LEITE 50</td>
+                    <td>28</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>108,42</td>
+                    <td>54,21</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>2,52</td>
+                    <td>0,00</td>
+                    <td>165,15</td>
+                    <td>5,90</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2002887</td>
+                    <td>CESTA CALDA P</td>
+                    <td>100</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>330,00</td>
+                    <td>165,00</td>
+                    <td>0,00</td>
+                    <td>32,18</td>
+                    <td>9,00</td>
+                    <td>0,00</td>
+                    <td>536,18</td>
+                    <td>5,36</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>2002888</td>
+                    <td>CESTA CALDA M</td>
+                    <td>100</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>429,97</td>
+                    <td>214,99</td>
+                    <td>0,00</td>
+                    <td>41,92</td>
+                    <td>9,00</td>
+                    <td>0,00</td>
+                    <td>695,88</td>
+                    <td>6,96</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>1003577</td>
+                    <td>SLACK LANUT PISTACHE 1KG</td>
+                    <td>2</td>
+                    <td><input type="number" class="caixas" min="0"></td>
+                    <td><input type="number" class="unidades" min="0"></td>
+                    <td>119,87</td>
+                    <td>59,94</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>179,81</td>
+                    <td>89,90</td>
+                    <td><span class="total-item" id="total-valor">0.00</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        <a href="..\html\selecao.html">
+            <p>Voltar ao Início</p>
+        </a>
+    </footer>
+
+    <script src="../js/planilha.js"></script>
+    <script src="../js/btn-export.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
 </body>
+
 </html>
