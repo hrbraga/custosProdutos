@@ -37,23 +37,28 @@
     </div>
 
     <table class="tableizer-table">
-      <thead>
-        <tr class="tableizer-firstrow">
-          <th>Código</th>
-          <th>Descrição do Material </th>
-          <th>QT caixa</th>
-          <th>caixas</th>
-          <th>unidades</th>
-          <th>Valor Un </th>
-          <th>Royalties</th>
-          <th>ST</th>
-          <th>IPI</th>
-          <th>Txs Adicionais</th>
-          <th>Tx Mídia</th>
-          <th>Custo Caixa</th>
-          <th>Custo UN </th>
-          <th> Total </th>
-        </tr>
+      <tr class="tableizer-firstrow">
+        <th>
+            Código<br>
+            <input type="text" id="filterCodigo" onkeyup="filterTable()" placeholder="Filtrar...">
+        </th>
+        <th>
+            Descrição do Material<br>
+            <input type="text" id="filterDescricao" onkeyup="filterTable()" placeholder="Filtrar...">
+        </th>
+        <th>QT caixa</th>
+        <th>caixas</th>
+        <th>unidades</th>
+        <th>Valor Un</th>
+        <th>Royalties</th>
+        <th>ST</th>
+        <th>IPI</th>
+        <th>Txs Adicionais</th>
+        <th>Tx Mídia</th>
+        <th>Custo Caixa</th>
+        <th>Custo UN</th>
+        <th>Total</th>
+    </tr>
       </thead>
       <tbody class="tableizer-linhas">
         <tr>
@@ -868,6 +873,7 @@
 
   <script src="../js/planilha.js"></script>
   <script src="../js/btn-export.js"></script>
+  <script src="../js/filtro.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/shim.min.js"></script>
