@@ -31,26 +31,28 @@ function exportToPDF() {
     const unidadesInput = row.querySelector("input.unidades");
     const total = row.querySelector("#total-valor").textContent.trim();
 
-    const caixas = caixasInput ? caixasInput.value || "0" : "0";
-    const unidades = unidadesInput ? unidadesInput.value || "0" : "0";
+    const caixas = caixasInput ? caixasInput.value.trim() || "0" : "0";
+    const unidades = unidadesInput ? unidadesInput.value.trim() || "0" : "0";
 
-    tableRows.push([codigo, descricao, caixas, unidades, total]);
+    if (caixas !== "0" || unidades !== "0") {
+      tableRows.push([codigo, descricao, caixas, unidades, total]);
+    }
   });
 
-  const headers = ["Código", "Descrição do Material", "Caixas", "Unidades", "Total"];
+  if (tableRows.length > 0) {
+    const headers = ["Código", "Descrição do Material", "Caixas", "Unidades", "Total"];
 
-  doc.autoTable({
-    head: [headers],
-    body: tableRows,
-    startY: 60,
-    theme: 'striped',
-    styles: { fontSize: 10 },
-    headStyles: { fillColor: [0, 102, 204] },
-  });
+    doc.autoTable({
+      head: [headers],
+      body: tableRows,
+      startY: 60,
+      theme: 'striped',
+      styles: { fontSize: 10 },
+      headStyles: { fillColor: [0, 102, 204] },
+    });
+  }
 
-  // Solicita o nome do arquivo ao usuário
   const fileName = prompt("Digite o nome do arquivo para exportação:", "Transferencia") || "Transferencia";
-  
   doc.save(`${fileName}.pdf`);
 }
 
@@ -86,21 +88,22 @@ function exportToXLS() {
     const unidadesInput = row.querySelector("input.unidades");
     const total = row.querySelector("#total-valor").textContent.trim();
 
-    const caixas = caixasInput ? caixasInput.value || "0" : "0";
-    const unidades = unidadesInput ? unidadesInput.value || "0" : "0";
+    const caixas = caixasInput ? caixasInput.value.trim() || "0" : "0";
+    const unidades = unidadesInput ? unidadesInput.value.trim() || "0" : "0";
 
-    tableRows.push([codigo, descricao, caixas, unidades, total]);
+    if (caixas !== "0" || unidades !== "0") {
+      tableRows.push([codigo, descricao, caixas, unidades, total]);
+    }
   });
 
-  const headers = ["Código", "Descrição do Material", "Caixas", "Unidades", "Total"];
+  if (tableRows.length > 0) {
+    const headers = ["Código", "Descrição do Material", "Caixas", "Unidades", "Total"];
+    lojaInfo.push([], headers, ...tableRows);
+  }
 
-  const combinedData = [...lojaInfo, [], headers, ...tableRows];
-
-  const sheet = XLSX.utils.aoa_to_sheet(combinedData);
+  const sheet = XLSX.utils.aoa_to_sheet(lojaInfo);
   XLSX.utils.book_append_sheet(wb, sheet, "Transferencia");
 
-  // Solicita o nome do arquivo ao usuário
   const fileName = prompt("Digite o nome do arquivo para exportação:", "Transferencia") || "Transferencia";
-
   XLSX.writeFile(wb, `${fileName}.xlsx`);
 }
