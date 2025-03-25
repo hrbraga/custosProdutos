@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/fondue.css">
+    <title>Calculadora de Fondues</title>
+</head>
+
+<body>
+    <h2>CALCULADORA DE FONDUE</h2><br>
+    <h2>Insumos</h2>
+    <table>
+        <tr>
+            <th>ITENS</th>
+            <th>CUSTO</th>
+            <th>CUSTO KG</th>
+        </tr>
+        <tr>
+            <td>MORANGO (bandeja)</td>
+            <td><input type="text" id="morango" placeholder="R$ 0,00"></td>
+            <td id="total-fruta">R$ 0,00</td>
+        </tr>
+        <tr>
+            <td>UVA</td>
+            <td><input type="text" id="uva" placeholder="R$ 0,00"></td>
+            <td id="total-uva">R$ 0,00</td>
+        </tr>
+        <tr>
+            <td>BANANA</td>
+            <td><input type="text" id="banana" placeholder="R$ 0,00"></td>
+            <td id="total-banana">R$ 0,00</td>
+        </tr>
+        <tr>
+            <td>CHOCOLATE - CX 4kg Cacau Show</td>
+            <td><input type="text" id="chocolate" placeholder="R$ 0,00"></td>
+            <td id="kg-chocolate">R$ 0,00</td>
+        </tr>
+        <tr>
+        <td class="anotacao" colspan="3"><strong>*Considerada uma perca de 10% referente casca, ramos e/ou folhas</strong></td>
+        </tr>
+    </table>
+
+
+    <h2>Custo por Fondue</h2>
+    <table>
+        <tr>
+            <th>DESCRIÇÃO</th>
+            <th>UN</th>
+            <th>QUANT</th>
+            <th>VALOR</th>
+            <th>TOTAL</th>
+        </tr>
+        <tr>
+            <td>Frutas</td>
+            <td>KG</td>
+            <td id="qnt-frutas">0,08</td>
+            <td id="media-frutas">R$ 0,00</td>
+            <td id="valor-frutas">R$ 0,00</td>
+        </tr>
+        <tr>
+            <td>Pote</td>
+            <td>UN</td>
+            <td>1</td>
+            <td>R$ 0,26</td>
+            <td id="total-pote">R$ 0,26</td>
+        </tr>
+        <tr>
+            <td>Colher</td>
+            <td>UN</td>
+            <td>1</td>
+            <td>R$ 0,06</td>
+            <td id="total-colher">R$ 0,06</td>
+        </tr>
+        <tr>
+            <td>Guardanapo</td>
+            <td>UN</td>
+            <td>2</td>
+            <td>R$ 0,02</td>
+            <td id="total-guardanapo">R$ 0,04</td>
+        </tr>
+        <tr>
+            <td>Chocolate</td>
+            <td>KG</td>
+            <td id="qnt-chocolate">0,08</td>
+            <td id="valor-chocolate">R$ 0,00</td>
+            <td id="total-chocolate">R$ 0,00</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align:right;"><strong>CUSTO/FONDUE</strong></td>
+            <td id="total-fondue"><strong>R$ 0,00</strong></td>
+        </tr>
+    </table>
+
+
+    <h2>Planejamento do Evento</h2>
+    <p>Pessoas no evento: <input type="text" name="qt-pessoas" id="qnt-pessoas"></p>
+    <p>Quantidade por convidado: <input type="text" name="qt-fondues-por-pessoa" id="qnt-fondues-por-pessoa"></p>
+    <p>Fondues necessários: <span id="fondues-necessarios">0</span></p>
+
+    <h2>Você precisará de:</h2>
+    <ul>
+        <li>Derretedeiras: 2</li>
+        <li>KG de Chocolate: 4,32</li>
+        <li>KG de Frutas: 4,32</li>
+        <li>Colheres: 54</li>
+        <li>Potes: 54</li>
+        <li>Guardanapos: 108</li>
+        <li>Concha: 2</li>
+        <li>Espátula: 1</li>
+        <li>Tigela de vidro: 2</li>
+        <li>Faca de corte: 2</li>
+        <li>Tábua de corte: 2</li>
+    </ul>
+
+    <h2>Financeiro</h2>
+    <p><strong>Preço por fondue:</strong> R$ 9,90</p>
+
+    <h2>Despesas</h2>
+    <table>
+        <tr>
+            <th>Categoria</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>Matéria prima e insumos</td>
+            <td>R$ 345,96</td>
+        </tr>
+        <tr>
+            <td>Funcionários</td>
+            <td>R$ 30,00</td>
+        </tr>
+        <tr>
+            <td>Gelo</td>
+            <td>R$ 53,46</td>
+        </tr>
+        <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>R$ 429,42</strong></td>
+        </tr>
+    </table>
+
+    <h2>Resultado</h2>
+    <p><strong>Valor arrecadado:</strong> R$ 534,60</p>
+    <p><strong>Despesas:</strong> -R$ 429,42</p>
+    <p><strong>Lucro do evento:</strong> <span style="color:green;">R$ 105,18</span></p>
+
+    <script src="../js/fondue.js"></script>
+
+</body>
+
+</html>
