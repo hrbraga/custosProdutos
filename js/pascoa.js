@@ -1,4 +1,4 @@
-const usuariosAutorizados = ["1065", "1487", "1871", "1692", "3540", "3809", "6890", "8135", "8820","5901", "8844"];
+const usuariosAutorizados = ["1065", "1487", "9603", "1871", "1692", "3540", "3809", "6890", "8135", "8820","5901", "8844"];
 
     // Aguarda o carregamento do DOM
     document.addEventListener("DOMContentLoaded", function() {
