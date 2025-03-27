@@ -14,11 +14,11 @@ function acessar() {
         return;
     }
 
-    const codigosValidos = ["1370", "1871","1692", "1926","5901","6890", "8820","2631", "4183", "7731", "1300", "1065", "3809", "5835", "3540", "8135", "8844"];
+    const codigosValidos = ["1370", "8372", "1871", "1692", "1926", "5901", "6890", "8820", "2631", "4183", "7731", "1300", "1065", "3809", "5835", "3540", "8135", "8844"];
 
     if (codigosValidos.includes(codigoDigitado)) {
         alert("Acesso Autorizado!");
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = "../html/selecao.html";
         }, 50);
     } else {
@@ -27,9 +27,9 @@ function acessar() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const formulario = document.getElementById("formularioAcesso");
-    formulario.addEventListener("submit", function(event) {
+    formulario.addEventListener("submit", function (event) {
         event.preventDefault();
         acessar();
     });
