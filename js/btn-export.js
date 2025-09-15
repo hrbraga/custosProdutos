@@ -29,7 +29,8 @@ function exportToPDF() {
     const descricao = row.children[1].textContent.trim();
     const caixasInput = row.querySelector("input.caixas");
     const unidadesInput = row.querySelector("input.unidades");
-    const total = row.querySelector("#total-valor").textContent.trim();
+    // CORREÇÃO: Usando o seletor de classe .total-item para selecionar o total
+    const total = row.querySelector(".total-item").textContent.trim();
 
     const caixas = caixasInput ? caixasInput.value.trim() || "0" : "0";
     const unidades = unidadesInput ? unidadesInput.value.trim() || "0" : "0";
@@ -86,7 +87,8 @@ function exportToXLS() {
     const descricao = row.children[1].textContent.trim();
     const caixasInput = row.querySelector("input.caixas");
     const unidadesInput = row.querySelector("input.unidades");
-    const total = row.querySelector("#total-valor").textContent.trim();
+    // CORREÇÃO: Usando o seletor de classe .total-item para selecionar o total
+    const total = row.querySelector(".total-item").textContent.trim();
 
     const caixas = caixasInput ? caixasInput.value.trim() || "0" : "0";
     const unidades = unidadesInput ? unidadesInput.value.trim() || "0" : "0";
