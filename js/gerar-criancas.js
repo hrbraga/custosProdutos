@@ -4,7 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para formatar números para a exibição em Real (BRL)
     const formatarMoeda = (valor) => {
-        return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        // Garante que o valor é um número antes de formatar
+        const numero = parseFloat(valor);
+        if (isNaN(numero)) {
+            return "0,00";
+        }
+        return numero.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
 
     // Função que calcula o total de uma única linha da tabela
@@ -42,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${item.qtCaixa}</td>
                 <td><input type="number" class="caixas" min="0"></td>
                 <td><input type="number" class="unidades" min="0"></td>
-                <td>${formatarMoeda(item.valorCx)}</td>
+                <td>${formatarMoeda(item.valorUn)}</td>
                 <td>${formatarMoeda(item.royalties)}</td>
                 <td>${formatarMoeda(item.st)}</td>
                 <td>${formatarMoeda(item.ipi)}</td>
@@ -62,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const unidadesInput = tr.querySelector('.unidades');
             const totalSpan = tr.querySelector('.total-item');
 
-            // Adiciona o event listener para os campos de input
             const handleInput = () => {
                 calcularTotalLinha(item, caixasInput, unidadesInput, totalSpan);
                 calcularTotalGeral();
