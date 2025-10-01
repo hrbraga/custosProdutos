@@ -2950,6 +2950,32 @@ const produtos_linha = [
     custoCaixa: 435.94,
     custoUn: 3.35,
   },
+   {
+    codigo: '1003766',
+    descricao: 'CX DINOSSAUROS DRAGEADOS 60G',
+    qtCaixa: 12,
+    valorUn: 52.84,
+    royalties: 26.42,
+    st: 6.63,
+    ipi: 1.72,
+    txsAdicionais: 1.08,
+    txMidia: 0.00,
+    custoCaixa: 88.69,
+    custoUn: 7.39,
+  },
+   {
+    codigo: '1003787',
+    descricao: 'CX MONSTROS COM TATTO 120G',
+    qtCaixa: 12,
+    valorUn: 133.95,
+    royalties: 66.98,
+    st: 13.62,
+    ipi: 4.35,
+    txsAdicionais: 1.08,
+    txMidia: 0.00,
+    custoCaixa: 219.98,
+    custoUn: 18.33,
+  },
 ];
 
 //Início da Campanha Crianças
