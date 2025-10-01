@@ -1,28 +1,39 @@
 function exportToPDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-
+  // ---- Lógica de Validação ----
   const lojaRemetente = document.querySelector("#remetente").value || "";
   const lojaDestino = document.querySelector("#destino").value || "";
   const dataTransferenciaInput = document.querySelector("#date").value || "";
-  const totalTransferencia = document.querySelector("#vlr-transferencia").textContent.trim();
-  
-  // CAPTURA O TÍTULO DA PÁGINA DINAMICAMENTE
+  const totalTransferenciaElement = document.querySelector("#vlr-transferencia");
+  const totalTransferencia = parseFloat(totalTransferenciaElement.textContent.trim().replace('.', '').replace(',', '.')) || 0;
+
+  if (lojaRemetente === "" || lojaDestino === "" || dataTransferenciaInput === "") {
+    alert("Por favor, preencha todos os campos do formulário (Loja Remetente, Loja Destino e Data da Transferência).");
+    return;
+  }
+
+  if (totalTransferencia === 0) {
+    alert("O valor total da transferência é zero. Adicione caixas ou unidades para exportar.");
+    return;
+  }
+  // ---- Fim da Lógica de Validação ----
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
   const tituloPagina = document.querySelector("h1").textContent.trim();
 
-  const dataTransferencia = dataTransferenciaInput
-    ? new Date(dataTransferenciaInput).toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }).replace(/\//g, "-")
-    : "";
+  const dataArray = dataTransferenciaInput.split('-');
+  const dataCorreta = new Date(dataArray[0], dataArray[1] - 1, dataArray[2]);
+  const dataTransferencia = dataCorreta.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).replace(/\//g, "-");
 
   doc.text("Informações da Transferência", 10, 10);
   doc.text(`Loja Remetente: ${lojaRemetente}`, 10, 20);
   doc.text(`Loja Destino: ${lojaDestino}`, 10, 30);
   doc.text(`Data da Transferência: ${dataTransferencia}`, 10, 40);
-  doc.text(`Valor Total da Transferência: ${totalTransferencia}`, 10, 50);
+  doc.text(`Valor Total da Transferência: ${totalTransferenciaElement.textContent.trim()}`, 10, 50);
 
   const tableRows = [];
   const table = document.querySelector(".tableizer-table tbody");
@@ -55,28 +66,41 @@ function exportToPDF() {
     });
   }
 
-  // AGORA O NOME DO ARQUIVO É DINÂMICO
-  const fileName = prompt("Digite o nome do arquivo para exportação:", tituloPagina) || tituloPagina;
+  // CRIA UM NOME DE ARQUIVO PADRÃO E O USA NO PROMPT
+  const defaultFileName = `Trasf para ${lojaDestino} - ${dataTransferencia}`;
+  const fileName = prompt("Digite o nome do arquivo para exportação:", defaultFileName) || defaultFileName;
   doc.save(`${fileName}.pdf`);
 }
 
 function exportToXLS() {
-  const wb = XLSX.utils.book_new();
-
+  // ---- Lógica de Validação ----
   const lojaRemetente = document.querySelector("#remetente").value || "";
   const lojaDestino = document.querySelector("#destino").value || "";
   const dataTransferenciaInput = document.querySelector("#date").value || "";
-  
-  // CAPTURA O TÍTULO DA PÁGINA DINAMICAMENTE
+  const totalTransferenciaElement = document.querySelector("#vlr-transferencia");
+  const totalTransferencia = parseFloat(totalTransferenciaElement.textContent.trim().replace('.', '').replace(',', '.')) || 0;
+
+  if (lojaRemetente === "" || lojaDestino === "" || dataTransferenciaInput === "") {
+    alert("Por favor, preencha todos os campos do formulário (Loja Remetente, Loja Destino e Data da Transferência).");
+    return;
+  }
+
+  if (totalTransferencia === 0) {
+    alert("O valor total da transferência é zero. Adicione caixas ou unidades para exportar.");
+    return;
+  }
+  // ---- Fim da Lógica de Validação ----
+
+  const wb = XLSX.utils.book_new();
   const tituloPagina = document.querySelector("h1").textContent.trim();
 
-  const dataTransferencia = dataTransferenciaInput
-    ? new Date(dataTransferenciaInput).toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }).replace(/\//g, "-")
-    : "";
+  const dataArray = dataTransferenciaInput.split('-');
+  const dataCorreta = new Date(dataArray[0], dataArray[1] - 1, dataArray[2]);
+  const dataTransferencia = dataCorreta.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).replace(/\//g, "-");
 
   const lojaInfo = [
     ["Informações da Transferência"],
@@ -109,10 +133,10 @@ function exportToXLS() {
   }
 
   const sheet = XLSX.utils.aoa_to_sheet(lojaInfo);
-  // O NOME DA ABA TAMBÉM É DINÂMICO
   XLSX.utils.book_append_sheet(wb, sheet, tituloPagina);
 
-  // AGORA O NOME DO ARQUIVO É DINÂMICO
-  const fileName = prompt("Digite o nome do arquivo para exportação:", tituloPagina) || tituloPagina;
+  // CRIA UM NOME DE ARQUIVO PADRÃO E O USA NO PROMPT
+  const defaultFileName = `Trasf para ${lojaDestino} - ${dataTransferencia}`;
+  const fileName = prompt("Digite o nome do arquivo para exportação:", defaultFileName) || defaultFileName;
   XLSX.writeFile(wb, `${fileName}.xlsx`);
 }
