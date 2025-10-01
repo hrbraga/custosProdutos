@@ -6,6 +6,9 @@ function exportToPDF() {
   const lojaDestino = document.querySelector("#destino").value || "";
   const dataTransferenciaInput = document.querySelector("#date").value || "";
   const totalTransferencia = document.querySelector("#vlr-transferencia").textContent.trim();
+  
+  // CAPTURA O TÍTULO DA PÁGINA DINAMICAMENTE
+  const tituloPagina = document.querySelector("h1").textContent.trim();
 
   const dataTransferencia = dataTransferenciaInput
     ? new Date(dataTransferenciaInput).toLocaleDateString("pt-BR", {
@@ -29,7 +32,6 @@ function exportToPDF() {
     const descricao = row.children[1].textContent.trim();
     const caixasInput = row.querySelector("input.caixas");
     const unidadesInput = row.querySelector("input.unidades");
-    // CORREÇÃO: Usando o seletor de classe .total-item para selecionar o total
     const total = row.querySelector(".total-item").textContent.trim();
 
     const caixas = caixasInput ? caixasInput.value.trim() || "0" : "0";
@@ -53,7 +55,8 @@ function exportToPDF() {
     });
   }
 
-  const fileName = prompt("Digite o nome do arquivo para exportação:", "Transferencia") || "Transferencia";
+  // AGORA O NOME DO ARQUIVO É DINÂMICO
+  const fileName = prompt("Digite o nome do arquivo para exportação:", tituloPagina) || tituloPagina;
   doc.save(`${fileName}.pdf`);
 }
 
@@ -63,6 +66,9 @@ function exportToXLS() {
   const lojaRemetente = document.querySelector("#remetente").value || "";
   const lojaDestino = document.querySelector("#destino").value || "";
   const dataTransferenciaInput = document.querySelector("#date").value || "";
+  
+  // CAPTURA O TÍTULO DA PÁGINA DINAMICAMENTE
+  const tituloPagina = document.querySelector("h1").textContent.trim();
 
   const dataTransferencia = dataTransferenciaInput
     ? new Date(dataTransferenciaInput).toLocaleDateString("pt-BR", {
@@ -87,7 +93,6 @@ function exportToXLS() {
     const descricao = row.children[1].textContent.trim();
     const caixasInput = row.querySelector("input.caixas");
     const unidadesInput = row.querySelector("input.unidades");
-    // CORREÇÃO: Usando o seletor de classe .total-item para selecionar o total
     const total = row.querySelector(".total-item").textContent.trim();
 
     const caixas = caixasInput ? caixasInput.value.trim() || "0" : "0";
@@ -104,8 +109,10 @@ function exportToXLS() {
   }
 
   const sheet = XLSX.utils.aoa_to_sheet(lojaInfo);
-  XLSX.utils.book_append_sheet(wb, sheet, "Transferencia");
+  // O NOME DA ABA TAMBÉM É DINÂMICO
+  XLSX.utils.book_append_sheet(wb, sheet, tituloPagina);
 
-  const fileName = prompt("Digite o nome do arquivo para exportação:", "Transferencia") || "Transferencia";
+  // AGORA O NOME DO ARQUIVO É DINÂMICO
+  const fileName = prompt("Digite o nome do arquivo para exportação:", tituloPagina) || tituloPagina;
   XLSX.writeFile(wb, `${fileName}.xlsx`);
 }
