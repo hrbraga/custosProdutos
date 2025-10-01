@@ -60,7 +60,6 @@
                 obj.custoUn = parseFloat(item[headers.indexOf('Custo UN')].replace(',', '.')) || 0;
                 obj.total = 0;
                 
-                // Trata as novas colunas, se existirem
                 const precoIndex = headers.indexOf('PREÇO CL');
                 if (precoIndex !== -1) {
                     obj.preco = parseFloat(item[precoIndex].replace(',', '.').replace('%', '')) || 0;
@@ -77,9 +76,27 @@
                 return obj;
             });
             
-            let jsonOutput = JSON.stringify(produtos, null, 2);
-            jsonOutput = `const produtos_novos = ${jsonOutput.replace(/"/g, '')};`;
-            outputData.value = jsonOutput;
+            // Lógica ajustada para criar a string do array no formato correto
+            let arrayString = 'const produtos_novos = [\n';
+            produtos.forEach(prod => {
+                arrayString += '  {\n';
+                arrayString += `    codigo: '${prod.codigo}',\n`;
+                arrayString += `    descricao: '${prod.descricao}',\n`;
+                
+                // Adiciona as propriedades numéricas sem aspas
+                for (const key in prod) {
+                    if (key !== 'codigo' && key !== 'descricao') {
+                        arrayString += `    ${key}: ${prod[key]},\n`;
+                    }
+                }
+                
+                // Remove a vírgula extra do último item e fecha o objeto
+                arrayString = arrayString.slice(0, -2) + '\n'; 
+                arrayString += '  },\n';
+            });
+            arrayString = arrayString.slice(0, -2) + '\n];';
+            
+            outputData.value = arrayString;
         }
     </script>
 </body>
