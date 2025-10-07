@@ -22,7 +22,7 @@ function gerarTabelaUniversal(dadosProdutos) {
         return total;
     };
 
-    const calcularTotalGeral = () => {
+    window.calcularTotalGeral = () => {
         let totalGeral = 0;
         document.querySelectorAll('.total-item').forEach(totalSpan => {
             const valorString = totalSpan.textContent.replace('.', '').replace(',', '.');
@@ -53,8 +53,6 @@ function gerarTabelaUniversal(dadosProdutos) {
                 <td>${formatarMoeda(item.custoCaixa)}</td>
                 <td>${formatarMoeda(item.custoUn)}</td>
                 <td><span class="total-item" id="total-valor-${item.codigo}">0,00</span></td>
-                <td>${formatarMoeda(item.mbLiquida)}</td>
-                <td>${formatarMoeda(item.mbBruta)}</td>
             `;
 
             corpoTabela.appendChild(tr);
@@ -75,3 +73,32 @@ function gerarTabelaUniversal(dadosProdutos) {
 
     gerarLinhasTabela(dadosProdutos);
 }
+
+// Nova função para limpar os dados da planilha e do formulário
+function limparTabela() {
+    // Limpa os inputs da tabela
+    document.querySelectorAll('.tableizer-table input[type="number"]').forEach(input => {
+        input.value = "";
+    });
+
+    // Limpa os totais de cada linha
+    document.querySelectorAll('.total-item').forEach(span => {
+        span.textContent = "0,00";
+    });
+
+    // Limpa os campos do formulário
+    document.querySelector("#remetente").value = "";
+    document.querySelector("#destino").value = "";
+    document.querySelector("#date").value = "";
+
+    // Zera o valor total da transferência
+    document.querySelector("#vlr-transferencia").textContent = "0,00";
+}
+
+// Adiciona o event listener para o novo botão de limpar
+document.addEventListener('DOMContentLoaded', () => {
+    const btnLimpar = document.getElementById('btn-limpar');
+    if (btnLimpar) {
+        btnLimpar.addEventListener('click', limparTabela);
+    }
+});
