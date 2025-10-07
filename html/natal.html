@@ -13,13 +13,24 @@
 <body>
   <header>
     <h1>Natal 2024</h1>
-    <div class="botoes">
-      <p>EXPORTAR</p>
-      <div class="btn-exportar">
-        <button onclick="exportToPDF()">PDF</button>
-        <button onclick="exportToXLS()">XLS</button>
-      </div>
-    </div>
+      <div class="botoes">
+            <div class="btn-importar botoesImportacaoEExportacao">
+                <p>IMPORTAR ARQUIVO</p>
+                <button id="btn-importar">IMPORTAR</button>
+                <input type="file" id="importXLS" accept=".xlsx, .xls" style="display: none;">
+            </div>
+          
+            <div class="btn-exportar botoesImportacaoEExportacao">
+                <p>EXPORTAR</p>
+                <button onclick="exportToPDF()">PDF</button>
+                <button onclick="exportToXLS()">XLS</button>
+            </div>
+            
+            <div class="btn-limpar botoesImportacaoEExportacao">
+                <p>LIMPAR TUDO</p>
+                <button id="btn-limpar">LIMPAR</button>
+            </div>
+        </div>
   </header>
 
   <main>
