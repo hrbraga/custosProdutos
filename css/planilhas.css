@@ -23,14 +23,20 @@ header p{
     font-size: 1.4rem;
 }
 
-header .btn-exportar button{
+.botoes {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adiciona um espaço entre os botões */
+}
+
+header .botoesImportacaoEExportacao button{
     font-size: 1.6rem;
     padding: 5px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-header .btn-exportar button:hover{
+header .botoesImportacaoEExportacao button:hover{
     background-color: rgb(97, 30, 30);
     color: #ffffff;
     border: 1px solid #ccc;

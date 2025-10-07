@@ -1,8 +1,9 @@
+// import-xls.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const importInput = document.getElementById('importXLS');
     const btnImportar = document.getElementById('btn-importar');
 
-    // Quando o botão for clicado, ele dispara o clique no input de arquivo oculto.
     btnImportar.addEventListener('click', () => {
         importInput.click();
     });
@@ -30,27 +31,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function preencherTabela(dadosImportados) {
+    if (!dadosImportados || dadosImportados.length <= 1) {
+        alert("O arquivo importado não contém dados válidos.");
+        return;
+    }
+
     const linhasDeDados = dadosImportados.slice(1);
+    const codigosNaoEncontrados = [];
+    const linhasDaTabela = document.querySelectorAll('.tableizer-table tbody tr');
 
     linhasDeDados.forEach(linha => {
-        const codigo = linha[0];
+        const codigo = String(linha[0] || '').trim(); // Lógica de correção
         const caixasImportadas = linha[1] || 0;
         const unidadesImportadas = linha[2] || 0;
 
-        const linhaTabela = document.querySelector(`.tableizer-table tbody tr:has(td:first-child:contains("${codigo}"))`);
+        let linhaEncontrada = false;
 
-        if (linhaTabela) {
-            const inputCaixas = linhaTabela.querySelector('input.caixas');
-            const inputUnidades = linhaTabela.querySelector('input.unidades');
+        for (const linhaTabela of linhasDaTabela) {
+            const codigoDaLinha = String(linhaTabela.querySelector('td:first-child').textContent).trim();
+            if (codigoDaLinha === codigo) {
+                const inputCaixas = linhaTabela.querySelector('input.caixas');
+                const inputUnidades = linhaTabela.querySelector('input.unidades');
 
-            if (inputCaixas) {
-                inputCaixas.value = caixasImportadas;
-            }
-            if (inputUnidades) {
-                inputUnidades.value = unidadesImportadas;
+                if (inputCaixas) {
+                    inputCaixas.value = caixasImportadas;
+                }
+                if (inputUnidades) {
+                    inputUnidades.value = unidadesImportadas;
+                }
+                linhaEncontrada = true;
+                break;
             }
         }
+
+        if (!linhaEncontrada && codigo) {
+            codigosNaoEncontrados.push(codigo);
+        }
     });
+
+    if (codigosNaoEncontrados.length > 0) {
+        const mensagemErro = `Os seguintes códigos não foram importados porque não existem na planilha: \n\n${codigosNaoEncontrados.join('\n')}`;
+        alert(mensagemErro);
+    } else {
+        alert("Arquivo importado com sucesso!");
+    }
 
     if (typeof calcularTotalGeral === 'function') {
         calcularTotalGeral();

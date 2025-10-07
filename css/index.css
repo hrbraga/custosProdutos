@@ -38,14 +38,14 @@ main .acesso input {
 
 }
 
-.btn-acessar, .btn-importar {
+.btn-acessar  {
     font-size: 1.5rem;
     padding: 2px;
     border-radius: 5px;
     border: 1px solid #020101;
 }
 
-.btn-acessar:hover, .btn-importar:hover {
+.btn-acessar:hover{
     background-color: rgb(100, 18, 18);
     color: #ffffff;
     border: 1px solid #ccc;
