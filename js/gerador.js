@@ -1,7 +1,6 @@
 // gerador.js
 
 function gerarTabelaUniversal(dadosProdutos) {
-    // AQUI: Salva o array de produtos da página atual em uma variável global
     window.activeProducts = dadosProdutos;
 
     const corpoTabela = document.getElementById('corpo-tabela');
@@ -77,6 +76,27 @@ function gerarTabelaUniversal(dadosProdutos) {
     gerarLinhasTabela(dadosProdutos);
 }
 
+// Nova função de limpeza mais segura
+function limparTabela() {
+    document.querySelectorAll('.tableizer-table input[type="number"]').forEach(input => {
+        input.value = "";
+    });
+    document.querySelectorAll('.total-item').forEach(span => {
+        span.textContent = "0,00";
+    });
+
+    const remetente = document.querySelector("#remetente");
+    const destino = document.querySelector("#destino");
+    const date = document.querySelector("#date");
+    const vlrTransferencia = document.querySelector("#vlr-transferencia");
+
+    if (remetente) remetente.value = "";
+    if (destino) destino.value = "";
+    if (date) date.value = "";
+    if (vlrTransferencia) vlrTransferencia.textContent = "0,00";
+}
+
+// Anexa a função ao botão APÓS o DOM estar completamente carregado
 document.addEventListener('DOMContentLoaded', () => {
     const btnLimpar = document.getElementById('btn-limpar');
     if (btnLimpar) {
