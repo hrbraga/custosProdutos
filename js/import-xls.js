@@ -41,7 +41,7 @@ function preencherTabela(dadosImportados) {
     const linhasDaTabela = document.querySelectorAll('.tableizer-table tbody tr');
 
     linhasDeDados.forEach(linha => {
-        const codigo = String(linha[0] || '').trim(); // Lógica de correção
+        const codigo = String(linha[0] || '').trim();
         const caixasImportadas = linha[1] || 0;
         const unidadesImportadas = linha[2] || 0;
 
@@ -52,6 +52,10 @@ function preencherTabela(dadosImportados) {
             if (codigoDaLinha === codigo) {
                 const inputCaixas = linhaTabela.querySelector('input.caixas');
                 const inputUnidades = linhaTabela.querySelector('input.unidades');
+                
+                // AQUI: Usa a nova variável global com o array de produtos ativos
+                const itemDados = window.activeProducts.find(item => String(item.codigo) === codigo);
+                const totalSpan = linhaTabela.querySelector('.total-item');
 
                 if (inputCaixas) {
                     inputCaixas.value = caixasImportadas;
@@ -59,6 +63,11 @@ function preencherTabela(dadosImportados) {
                 if (inputUnidades) {
                     inputUnidades.value = unidadesImportadas;
                 }
+                
+                if (window.calcularTotalLinha && itemDados && totalSpan) {
+                    window.calcularTotalLinha(itemDados, inputCaixas, inputUnidades, totalSpan);
+                }
+
                 linhaEncontrada = true;
                 break;
             }

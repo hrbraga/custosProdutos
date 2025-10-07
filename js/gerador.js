@@ -1,6 +1,9 @@
 // gerador.js
 
 function gerarTabelaUniversal(dadosProdutos) {
+    // AQUI: Salva o array de produtos da página atual em uma variável global
+    window.activeProducts = dadosProdutos;
+
     const corpoTabela = document.getElementById('corpo-tabela');
     const vlrTotalTransferencia = document.getElementById('vlr-transferencia');
 
@@ -12,7 +15,7 @@ function gerarTabelaUniversal(dadosProdutos) {
         return numero.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
 
-    const calcularTotalLinha = (item, caixasInput, unidadesInput, totalSpan) => {
+    window.calcularTotalLinha = (item, caixasInput, unidadesInput, totalSpan) => {
         const caixas = parseFloat(caixasInput.value) || 0;
         const unidades = parseFloat(unidadesInput.value) || 0;
 
@@ -74,28 +77,6 @@ function gerarTabelaUniversal(dadosProdutos) {
     gerarLinhasTabela(dadosProdutos);
 }
 
-// Nova função para limpar os dados da planilha e do formulário
-function limparTabela() {
-    // Limpa os inputs da tabela
-    document.querySelectorAll('.tableizer-table input[type="number"]').forEach(input => {
-        input.value = "";
-    });
-
-    // Limpa os totais de cada linha
-    document.querySelectorAll('.total-item').forEach(span => {
-        span.textContent = "0,00";
-    });
-
-    // Limpa os campos do formulário
-    document.querySelector("#remetente").value = "";
-    document.querySelector("#destino").value = "";
-    document.querySelector("#date").value = "";
-
-    // Zera o valor total da transferência
-    document.querySelector("#vlr-transferencia").textContent = "0,00";
-}
-
-// Adiciona o event listener para o novo botão de limpar
 document.addEventListener('DOMContentLoaded', () => {
     const btnLimpar = document.getElementById('btn-limpar');
     if (btnLimpar) {
