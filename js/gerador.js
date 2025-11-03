@@ -55,6 +55,9 @@ function gerarTabelaUniversal(dadosProdutos) {
                 <td>${formatarMoeda(item.custoCaixa)}</td>
                 <td>${formatarMoeda(item.custoUn)}</td>
                 <td><span class="total-item" id="total-valor-${item.codigo}">0,00</span></td>
+                <td>${formatarMoeda(item.mbLiquida)}</td>
+                <td>${formatarMoeda(item.mbBruta)}</td>
+                
             `;
 
             corpoTabela.appendChild(tr);

@@ -1,4 +1,4 @@
-const usuariosAutorizados = ["1065","6850","9438","1370","7552","2631","7662","6346","9194","4048", "1487", "9603", "1871", "1692", "3540", "3809", "6890", "8135", "8820","5901", "8844"];
+const usuariosAutorizados = ["4012"];
 
     // Aguarda o carregamento do DOM
     document.addEventListener("DOMContentLoaded", function() {
@@ -9,7 +9,7 @@ const usuariosAutorizados = ["1065","6850","9438","1370","7552","2631","7662","6
         // Adiciona um listener para o evento de clique
         linkCampanha3.addEventListener('click', function(event) {
           // Solicita que o usuário informe seu código RCKY
-          const rckyUsuario = prompt("Digite seu RCKY para acessar a Transferência de Páscoa:");
+          const rckyUsuario = prompt("Digite seu RCKY para acessar a campanha:");
           
           // Verifica se o input possui exatamente 4 dígitos numéricos
           if (!/^\d{4}$/.test(rckyUsuario)) {
